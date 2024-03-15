@@ -1,0 +1,6 @@
+*.*
+/*
+!chrome/
+!.gitignore
+!*.css
+!user.js
