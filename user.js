@@ -250,6 +250,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 user_pref("gfx.canvas.accelerated", true);
+user_pref("privacy.userContext.enabled", true);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
@@ -260,13 +261,9 @@ user_pref("gfx.canvas.accelerated", true);
  * Smoothfox                                                                            *
  * "Faber est suae quisque fortunae"                                                    *
  * priority: better scrolling                                                           *
- * version: 8 January 2024                                                              *
+ * version: 126.1                                                                       *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
-
-// Note: msdPhysics was enabled by default for 122 Nightly.
-// The options below have not been modified to account for this change.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1846935
 
 // Use only one option at a time!
 // Reset prefs if you decide to use different option.
@@ -277,10 +274,14 @@ user_pref("gfx.canvas.accelerated", true);
 // credit: https://github.com/black7375/Firefox-UI-Fix
 // only sharpen scrolling
 user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
+user_pref("general.smoothScroll", true); // DEFAULT
 user_pref("mousewheel.min_line_scroll_amount", 10); // 10-40; adjust this number to your liking; default=5
 user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
 user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
 user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4
+// Firefox Nightly only:
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1846935
+user_pref("general.smoothScroll.msdPhysics.enabled", false); // [FF122+ Nightly]
 
 /****************************************************************************************
  * OPTION: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                                       *
@@ -289,6 +290,9 @@ user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.
 user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
 user_pref("general.smoothScroll", true); // DEFAULT
 user_pref("mousewheel.default.delta_multiplier_y", 275); // 250-400; adjust this number to your liking
+// Firefox Nightly only:
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1846935
+user_pref("general.smoothScroll.msdPhysics.enabled", false); // [FF122+ Nightly]
 
 /****************************************************************************************
  * OPTION: SMOOTH SCROLLING                                                            *
@@ -312,10 +316,10 @@ user_pref("general.smoothScroll.msdPhysics.enabled", true);
 user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
 user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", "2");
 user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
-user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
-user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
+user_pref("general.smoothScroll.currentVelocityWeighting", "1");
+user_pref("general.smoothScroll.stopDecelerationWeighting", "1");
 user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 /****************************************************************************
  * END: BETTERFOX                                                           *
